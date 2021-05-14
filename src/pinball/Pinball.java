@@ -123,11 +123,12 @@ public class Pinball {
 	 * @param sideChoosen
 	 */
 	public void playGame(int sideChoosen) {
+		int pointsMove = getPointsMove();
 		STR.setLength(0);
-		STR.append("Puntuación de la jugada: ").append(getPointsMove());
+		STR.append("Puntuación de la jugada: ").append(pointsMove);
 		System.out.println(STR);
 		//Se suman al total los puntos de la jugada
-		this.pointsScored += getPointsMove();
+		this.pointsScored += pointsMove;
 		// Si el lado elegido es el mismo que el aleatorio, obtiene un nuevo lado aleatorio, si no, alerta del fallo y cambia fail a true
 		if (Pinball.side == sideChoosen) {
 			getRandomSide();
