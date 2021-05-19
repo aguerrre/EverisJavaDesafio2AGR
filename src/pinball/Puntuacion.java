@@ -2,18 +2,19 @@ package pinball;
 
 /**
  * Desafio 2 - Java
+ * 
  * @author aguerrre
  *
  */
 public class Puntuacion {
-	/**
-	 * Variables de instancia
-	 */
+
+	/** Variables de instancia */
 	private final String name;
 	private long score;
-	
+
 	/**
 	 * Constructor con el nombre del jugador como parámetro
+	 * 
 	 * @param name
 	 */
 	public Puntuacion(String name) {
@@ -36,10 +37,11 @@ public class Puntuacion {
 	}
 
 	/**
-	 * @param score the score to set
+	 * @param score
+	 *            the score to set
 	 */
 	public void setScore(long score) {
 		this.score = score;
 	}
-	
+
 }

@@ -10,28 +10,26 @@ import java.util.Random;
  */
 
 public class Pinball {
-	/**
-	 * Objeto StringBuilder para mostrar los mensajes por consola
-	 */
+
+	/** Objeto StringBuilder para mostrar los mensajes por consola */
 	private static final StringBuilder STR = new StringBuilder();
-	/**
-	 * Variable de clase que muestra hacia que lado se va la bola durante el juego. Si es 0 es izquierda, si es 1 es derecha
-	 */
+
+	/** Variable de clase que muestra hacia que lado se va la bola durante el juego. Si es 0 es izquierda, si es 1 es derecha */
 	private static int side;
-	/**
-	 * Objeto Random para crear números aleatorios
-	 */
+
+	/** Objeto Random para crear números aleatorios */
 	private static final Random r = new Random();
-	/**
-	 * Atributos: número de bolas por partida y booleano que indica si se ha producido un fallo o no
-	 */
+
+	/** Número de bolas por partida */
 	private int ball;
+
+	/** Booleano que indica si se ha producido un fallo o no */
 	private boolean fail;
+
+	/** Puntos obtenidos en la partida */
 	private long pointsScored;
 
-	/**
-	 * Constructor sin parámetros, pero que inicia las bolas disponibles a 3 y
-	 */
+	/** Constructor sin parámetros que inicia las bolas disponibles a 3 y los puntos a 0 */
 	public Pinball() {
 		super();
 		this.ball = 3;
@@ -110,16 +108,17 @@ public class Pinball {
 	 */
 	public void launchBall() {
 		System.out.println("Se ha lanzado una nueva bola.");
-		//Se resta una bola al total de bolas disponibles
+		// Se resta una bola al total de bolas disponibles
 		this.setBall(this.getBall() - 1);
-		//Se reinicia la variable fail a false
+		// Se reinicia la variable fail a false
 		this.setFail(Boolean.FALSE);
-		//Se obtiene el primer lado aleatorio hacia el que va la bola
+		// Se obtiene el primer lado aleatorio hacia el que va la bola
 		getRandomSide();
 	}
 
 	/**
 	 * Método para jugar cada bola tirada
+	 * 
 	 * @param sideChoosen
 	 */
 	public void playGame(int sideChoosen) {
@@ -127,7 +126,7 @@ public class Pinball {
 		STR.setLength(0);
 		STR.append("Puntuación de la jugada: ").append(pointsMove);
 		System.out.println(STR);
-		//Se suman al total los puntos de la jugada
+		// Se suman al total los puntos de la jugada
 		this.pointsScored += pointsMove;
 		// Si el lado elegido es el mismo que el aleatorio, obtiene un nuevo lado aleatorio, si no, alerta del fallo y cambia fail a true
 		if (Pinball.side == sideChoosen) {
@@ -137,9 +136,10 @@ public class Pinball {
 			this.setFail(Boolean.TRUE);
 		}
 	}
-	
+
 	/**
 	 * Método para obtener los puntos de una jugada individual
+	 * 
 	 * @return pointsMove
 	 */
 	private int getPointsMove() {
@@ -151,14 +151,14 @@ public class Pinball {
 	 * Método para obtener hacia qué lado se va la bola
 	 */
 	private void getRandomSide() {
-		
+
 		int randomSide = r.nextInt(1 + 1);
 		if (randomSide == 0) {
 			System.out.println("La bola va hacia la izquierda...");
 		} else {
 			System.out.println("La bola va hacia la derecha...");
 		}
-		//Se cambia la variable de clase side
+		// Se cambia la variable de clase side
 		Pinball.setSide(randomSide);
 	}
 
